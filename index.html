@@ -288,6 +288,10 @@
         </div>
 
     </div>
+
+<audio id="bg-music" loop>
+    <source src="audio/Lagu.mp3" type="audio/mp3">
+</audio>
     <script>
 /* =========================
    SCRIPT LAMA (GLOBAL)
@@ -406,6 +410,15 @@ onValue(komentarRef, (snapshot) => {
 });
 });
 
+</script>
+<script>
+function bukaUndangan() {
+    document.getElementById('envelope').classList.add('envelope-open');
+    document.getElementById('main-content').style.display = 'block';
+
+    const music = document.getElementById("bg-music");
+    music.play();
+}
 </script>
 
 
