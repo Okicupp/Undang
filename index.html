@@ -175,6 +175,8 @@
             padding: 15px 30px; border-radius: 50px; cursor: pointer;
             font-weight: bold; text-decoration: none; display: inline-block;
             box-shadow: 0 5px 15px rgba(141, 110, 99, 0.4);
+		}
+		
         /* -- komentar --*/
         .komentar-item {
                 background: #fff;
@@ -278,7 +280,7 @@
                 <label>Ucapan / Doa</label>
                 <textarea id="komentar" placeholder="Tulis ucapan atau doa..." style="width:100%; padding:12px; border-radius:10px; border:1px solid #ddd;"></textarea>
 
-                <button class="btn" onclick="tambahKomentar()">Kirim Komentar</button>
+                <button class="btn" onclick="kirimKomentarOnline()">Kirim Komentar</button>
 
                 <div id="daftar-komentar" style="margin-top:20px; text-align:left;"></div>
 
@@ -333,13 +335,13 @@ import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebas
 
 // 🔴 GANTI DENGAN CONFIG KAMU
 const firebaseConfig = {
-  apiKey: "ISI_API_KEY",
-  authDomain: "ISI.firebaseapp.com",
-  databaseURL: "ISI.asia-southeast1.firebasedatabase.app",
-  projectId: "ISI",
-  storageBucket: "ISI.appspot.com",
-  messagingSenderId: "ISI",
-  appId: "ISI"
+  apiKey: "AIzaSyCTqpSv4UTt8BJo6ksJvHTtGXS2fD8vkBw",
+  authDomain: "wedding-alghi.firebaseapp.com",
+  databaseURL: "https://wedding-alghi-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "wedding-alghi",
+  storageBucket: "wedding-alghi.firebasestorage.app",
+  messagingSenderId: "399792818729",
+  appId: "1:399792818729:web:09d7e7978919f2a0fdea38"
 };
 
 const app = initializeApp(firebaseConfig);
