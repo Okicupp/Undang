@@ -376,11 +376,34 @@ onValue(komentarRef, (snapshot) => {
   if (!data) return;
 
   Object.values(data).reverse().forEach(item => {
-    const div = document.createElement("div");
-    div.className = "komentar-item";
-    div.innerHTML = `<strong>${item.nama}</strong><br>${item.isi}`;
-    container.appendChild(div);
+  const div = document.createElement("div");
+  div.className = "komentar-item";
+
+  // Format tanggal Indonesia
+  const tanggal = new Date(item.waktu);
+  const tglFormat = tanggal.toLocaleDateString("id-ID", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric"
   });
+
+  const jamFormat = tanggal.toLocaleTimeString("id-ID", {
+    hour: "2-digit",
+    minute: "2-digit"
+  });
+
+  div.innerHTML = `
+    <div class="komentar-nama">${item.nama}</div>
+    <div style="font-size:12px; opacity:0.7; margin-bottom:5px;">
+      ${tglFormat} • ${jamFormat}
+    </div>
+    <div>${item.isi}</div>
+  `;
+
+  container.appendChild(div);
+});
+
 });
 </script>
 
