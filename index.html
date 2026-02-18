@@ -289,9 +289,18 @@
 
     </div>
 
+<div>
 <audio id="bg-music" loop>
     <source src="audio/Lagu.mp3" type="audio/mp3">
 </audio>
+
+<button onclick="toggleMusic()" 
+style="position:fixed; bottom:20px; right:20px; z-index:999;
+background:#8d6e63; color:white; border:none; 
+width:50px; height:50px; border-radius:50%;">
+🎵
+</button>
+</div>
     <script>
 /* =========================
    SCRIPT LAMA (GLOBAL)
@@ -418,6 +427,16 @@ function bukaUndangan() {
 
     const music = document.getElementById("bg-music");
     music.play();
+}
+</script>
+<script>
+function toggleMusic(){
+    const music = document.getElementById("bg-music");
+    if(music.paused){
+        music.play();
+    } else {
+        music.pause();
+    }
 }
 </script>
 
