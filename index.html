@@ -379,24 +379,25 @@ onValue(komentarRef, (snapshot) => {
   const div = document.createElement("div");
   div.className = "komentar-item";
 
-  // Format tanggal Indonesia
-  const tanggal = new Date(item.waktu);
-  const tglFormat = tanggal.toLocaleDateString("id-ID", {
+  // Kalau komentar lama belum ada waktu
+  const waktu = item.waktu ? new Date(item.waktu) : new Date();
+
+  const tanggal = waktu.toLocaleDateString("id-ID", {
     weekday: "long",
     day: "numeric",
     month: "long",
     year: "numeric"
   });
 
-  const jamFormat = tanggal.toLocaleTimeString("id-ID", {
+  const jam = waktu.toLocaleTimeString("id-ID", {
     hour: "2-digit",
     minute: "2-digit"
   });
 
   div.innerHTML = `
     <div class="komentar-nama">${item.nama}</div>
-    <div style="font-size:12px; opacity:0.7; margin-bottom:5px;">
-      ${tglFormat} • ${jamFormat}
+    <div style="font-size:12px; opacity:0.6; margin-bottom:6px;">
+      ${tanggal} • ${jam}
     </div>
     <div>${item.isi}</div>
   `;
@@ -404,7 +405,6 @@ onValue(komentarRef, (snapshot) => {
   container.appendChild(div);
 });
 
-});
 </script>
 
 
