@@ -333,7 +333,7 @@ setInterval(() => {
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
-// 🔴 GANTI DENGAN CONFIG KAMU
+// CONFIG KAMU (SUDAH BENAR)
 const firebaseConfig = {
   apiKey: "AIzaSyCTqpSv4UTt8BJo6ksJvHTtGXS2fD8vkBw",
   authDomain: "wedding-alghi.firebaseapp.com",
@@ -358,7 +358,7 @@ window.kirimKomentarOnline = function () {
   }
 
   push(ref(db, "komentar"), {
-    nama: nama,
+    nama,
     isi: komentar,
     waktu: Date.now()
   });
@@ -383,6 +383,7 @@ onValue(komentarRef, (snapshot) => {
   });
 });
 </script>
+
 
 </body>
 </html>
